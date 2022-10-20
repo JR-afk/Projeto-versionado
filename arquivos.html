@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <script>
+        if (localStorage.getItem("ul") == null) {
+            window.location.href = "entrar.html"
+        } else {
+            localStorage.removeItem("ul")
+        }
+    </script>
+    <title>
+        S.O.S mulher
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+</head>
+<style>
+    #myInput {
+        color: #dc3545;
+    }
+    
+    #myInput:placeholder-shown {
+        color: #dc3545;
+    }
+    
+    #myInput:focus::placeholder {
+        color: transparent;
+        transition: 0.5s;
+    }
+    
+    #img {
+        width: 70px;
+        height: 15px;
+        border: #dc3545 solid 3px;
+        border-radius: 3px;
+        background: #dc3545;
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto">
+                            <li class="navbar-brand">
+                                <img id="img" src="../soslogo.png">
+                            </li>
+                            <li class="nav-item">
+                                <ion-icon class="nav-link" style="cursor: pointer; color: #6c757d; height: 24px; width: 24px;" name="alert" onclick="inicio()"></ion-icon>
+                            </li>
+                            <li class="nav-item">
+                                <ion-icon class="nav-link" style="cursor: pointer; color: #6c757d; height: 24px; width: 24px;" name="contact" onclick="entrar()"></ion-icon>
+                            </li>
+                            <li class="nav-item">
+                                <ion-icon class="nav-link" style="cursor: pointer; color:#6c757d; height: 24px; width: 24px;" name="compass" onclick="localizar()"></ion-icon>
+                            </li>
+                            <li class="nav-item">
+                                <ion-icon class="nav-link" style="color: #dc3545; height: 24px; width: 24px; border-bottom: 2px solid #dc3545;" name="checkmark-circle"></ion-icon>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="row justify-content-center" style="margin: 10px;">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="mb-3"></div>
+                <div class="mb-3">
+                    <input style="outline: 0; box-shadow:none; border: #dc3545 1px solid;" id="shnome" autocomplete="off" class="form-control" type="text" placeholder="Pesquisar por nome">
+                </div>
+                <div id="container"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function inicio() {
+        location.href = "index.html"
+    }
+
+    function entrar() {
+        location.href = "entrar.html"
+    }
+
+    function localizar() {
+        location.href = "localizar.html"
+        localStorage.setItem('ul', '1');
+        return
+    }
+</script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script type="module" src="../arquivadas.js"></script>
+
+</html>
